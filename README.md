@@ -1,5 +1,7 @@
 # ChocoBot - The PoshBot Chocolatey Plugin
 
+## :construction: THIS PROJECT IS IN DEVELOPMENT. It is functionally useless at the minute. This README will be updated once something useful is available.
+
 Do you use Slack? Teams? Discord? Do you partake in [ChatOps](https://www.pagerduty.com/blog/what-is-chatops/)? If you've answered yes, or you'd _like_ to do those things, this is another tool in your toolbelt!
 
 This plug-in allows you to execute choco commands on target systems directly from your enterprise messaging platform!
