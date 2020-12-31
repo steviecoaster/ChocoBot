@@ -12,9 +12,6 @@ function Uninstall-ChocoBotPackage {
     .PARAMETER Computername
     The target computer(s) on which to perform the Uninstallation of the Chocolatey Package(s).
     
-    .PARAMETER Source
-    If specified, will attempt to locate Chocolatey Packages from this location explicitly.
-    
     .PARAMETER Force
     Will force the Uninstallation of the package to occur, even if it is already Uninstalled
     
@@ -35,10 +32,6 @@ function Uninstall-ChocoBotPackage {
         [String[]]
         [Alias('Target', 'Computer')]
         $Computername,
-
-        [Parameter()]
-        [String]
-        $Source,
 
         [Parameter()]
         [Switch]

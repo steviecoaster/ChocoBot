@@ -1,7 +1,57 @@
 function Add-ChocoBotSource {
+    <#
+    .SYNOPSIS
+    Adds a Chocolatey source to target computer(s).
+    
+    .DESCRIPTION
+    Adds a Chocolatey source to target computer(s).
+    
+    .PARAMETER FriendlyName
+    This is the human name of the source. E.g.: chocolatey
+    
+    .PARAMETER Source
+    This is the path to the source. E.g.: https://chocolatey.org/api/v2
+    
+    .PARAMETER Computername
+    The computer(s) to add a source
+    
+    .PARAMETER AllowSelfService
+    Enables Self Service mode for the source
+    
+    .PARAMETER AdminOnly
+    Allows only members of the local Administrators group to use the source
+    
+    .PARAMETER Priority
+    Set the priority of the source for retrieving packages
+    
+    .PARAMETER Credential
+    If authentication is required for the source, provide those credentials
+    
+    .PARAMETER PFXCertificate
+    If a certificate is required for the source, add the path to the PFX certificate
+    
+    .PARAMETER CertificatePassword
+    If the PFX certificate has a password, enter it here
+    
+    .PARAMETER BypassProxy
+    Instruct the source to bypass any system proxy configuration that may be applied
+    
+    .EXAMPLE
+    Minimal source additon example
+    Add-ChocoSource -FriendlyName MyRepo -Source https://myrepository.com:8443/repository/MyRepo/ -Computername Finance01
 
+    .EXAMPLE
+    Add an authenticated source
+
+    Add-ChocoBotSource -FriendlyName MyRepo -Source https://myrepository.com:8443/repository/MyRepo/ -Credential $credential -Computername Finance01
+
+    .EXAMPLE
+    Add a self-service enabled source
+
+    Add-ChocoBotSource -FriendlyName MyRepo -Source https://myrepository.com:8443/repository/MyRepo/ -AllowSelfService -Computername Finance01
+    #>
     [PoshBot.BotCommand(CommandName = 'addsource')]
-    [cmdletBinding()]
+    [cmdletBinding(HelpUri="https://github.com/steviecoaster/ChocoBot/blob/main/Help/Add-ChocoBotSource.md")]
     param(
         [Parameter(Mandatory)]
         [String]

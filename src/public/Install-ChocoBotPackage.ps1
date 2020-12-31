@@ -25,7 +25,7 @@ function Install-ChocoBotPackage {
     Install-ChocoBotPackage -Package vlc,googlechrome,vscode -Computername ((Get-ADComputer -SearchBase "OU=Finance,OU=Chicago","DC=fabrikam",DC=com".Name)
     #>
     [PoshBot.BotCommand(CommandName = 'install')]
-    [CmdletBinding(HelpUri = "https://github.com/steviecoaster/ChocoBot/blob/main/Help/Install-ChocoBotPackage.md")]
+    [CmdletBinding(HelpUri="https://github.com/steviecoaster/ChocoBot/blob/main/Help/Install-ChocoBotPackage.md")]
     Param(
         [Parameter(Mandatory)]
         [String[]]

@@ -25,7 +25,7 @@ Get-ChocoBotPackage -Source https://myserver:8443/repository/MyRepo/ -Computerna
 Get-ChocoBotPackage -Source MyRepo -Computername Finance01 -Package lob-app
 #>
     [PoshBot.BotCommand(CommandName = 'listpackages')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri="https://github.com/steviecoaster/ChocoBot/blob/main/Help/Get-ChocoBotPackage.md")]
     Param(
         [Parameter(Mandatory)]
         [String]

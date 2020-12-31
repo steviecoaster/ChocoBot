@@ -14,7 +14,7 @@ function Get-ChocoBotSource {
     #>
 
     [PoshBot.BotCommand(CommandName = 'getsource')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri="https://github.com/steviecoaster/ChocoBot/blob/main/Help/Get-ChocoBotSource.md")]
     Param(
         [Parameter(Mandatory)]
         [String[]]

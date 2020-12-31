@@ -34,7 +34,7 @@ function Upgrade-ChocoBotPackage {
     Upgrade-ChocoBotPackage -Package vlc,googlechrome,vscode -Computername ((Get-ADComputer -SearchBase "OU=Finance,OU=Chicago","DC=fabrikam",DC=com".Name)
     #>
     [PoshBot.BotCommand(CommandName = 'upgrade')]
-    [CmdletBinding(HelpUri = "https://github.com/steviecoaster/ChocoBot/blob/main/Help/Upgrade-ChocoBotPackage.md")]
+    [CmdletBinding(HelpUri="https://github.com/steviecoaster/ChocoBot/blob/main/Help/Upgrade-ChocoBotPackage.md")]
     Param(
         [Parameter()]
         [String[]]
