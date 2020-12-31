@@ -71,6 +71,7 @@ Description = 'Chocolatey bot for ChatOps! Use choco within your messaging platf
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @('Install-ChocoBotPackage',
 'Uninstall-ChocoBotPackage',
+'Upgrade-ChocoBotPackage',
 'Get-ChocoBotPackage',
 'Add-ChocoBotSource',
 'Get-ChocoBotSource')
