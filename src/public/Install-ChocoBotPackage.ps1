@@ -24,7 +24,7 @@ function Install-ChocoBotPackage {
     .EXAMPLE
     Install-ChocoBotPackage -Package vlc,googlechrome,vscode -Computername ((Get-ADComputer -SearchBase "OU=Finance,OU=Chicago","DC=fabrikam",DC=com".Name)
     #>
-    [PoshBot.BotCommand(CommandName = 'install')]
+    #[PoshBot.BotCommand(CommandName = 'install')]
     [CmdletBinding(HelpUri="https://github.com/steviecoaster/ChocoBot/blob/main/Help/Install-ChocoBotPackage.md")]
     Param(
         [Parameter(Mandatory)]
@@ -52,37 +52,14 @@ function Install-ChocoBotPackage {
         @('install', $Package, '-y', '--no-progress') | ForEach-Object { $chocoArgs.Add($_) }
 
         if ($Source) {
-            $chocoArgs += '--source="$Source"'
+            $chocoArgs.Add("--source='$Source'")
         }
 
         if ($Force) {
-            $chocoArgs += '--force'
+            $chocoArgs.Add('--force')
         }
-        
-        Invoke-Command -ComputerName $Computername -ScriptBlock {
-            
-            $arg = $using:ChocoArgs
-            
-            #Build Complex process
-            $statements = "$($arg -join ' ')"
-            $process = New-Object System.Diagnostics.Process
-            $process.EnableRaisingEvents = $true
 
-            #Register-ObjectEvent -InputObject $process -SourceIdentifier "LogOUtput"
+        Invoke-ChocoProcess -ChocoArgs $chocoArgs
         
-            #StartInfo properties
-            $psi = New-Object System.Diagnostics.ProcessStartInfo
-            $psi.FileName = 'C:\ProgramData\chocolatey\bin\choco.exe'
-            $psi.Arguments = "$statements"
-            $psi.CreateNoWindow = $true
-            $psi.UseShellExecute = $false
-            $psi.RedirectStandardOutput = $true
-
-            #Kick off our process
-            $process.StartInfo = $psi
-            $null = $process.Start()
-            $process.WaitForExit()
-            $null = $process.Dispose()
-        }
     }
 }
