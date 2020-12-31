@@ -24,7 +24,7 @@ function Uninstall-ChocoBotPackage {
     .EXAMPLE
     Uninstall-ChocoBotPackage -Package vlc,googlechrome,vscode -Computername ((Get-ADComputer -SearchBase "OU=Finance,OU=Chicago","DC=fabrikam",DC=com".Name)
     #>
-    #[PoshBot.BotCommand(CommandName = 'Uninstall')]
+    [PoshBot.BotCommand(CommandName = 'Uninstall')]
     [CmdletBinding(HelpUri="https://github.com/steviecoaster/ChocoBot/blob/main/Help/Uninstall-ChocoBotPackage.md")]
     Param(
         [Parameter(Mandatory)]
@@ -61,20 +61,16 @@ function Uninstall-ChocoBotPackage {
 
         Invoke-ChocoProcess -ChocoArgs $chocoArgs
         
-        if($LASTEXITCODE -eq 0){
-            [pscustomObject]@{
-                Result = "Success"
+        $cardParams = @{
+            Title = "Package Uninstallation Complete"
+            Text  = [pscustomobject]@{
                 Package = $Package
                 Targets = $Computername
-            }
+
+            } | Format-List -Property * | Out-String
+            Type  = 'Normal'
         }
 
-        else {
-            [pscustomobject]@{
-                Result = "Failed"
-                Package = $Package
-                Targets = $Computername
-            }
-        }
+        New-PoshbotCardResponse @cardParams
     }
 }

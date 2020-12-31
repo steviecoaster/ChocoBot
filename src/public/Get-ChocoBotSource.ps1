@@ -13,7 +13,7 @@ function Get-ChocoBotSource {
     Get-ChocoBotSource -ComputerName PC1,PC2
     #>
 
-    #Wire PoshBot CommandNamehere
+    [PoshBot.BotCommand(CommandName = 'getsource')]
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory)]

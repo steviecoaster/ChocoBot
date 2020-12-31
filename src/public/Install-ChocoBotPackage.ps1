@@ -24,8 +24,8 @@ function Install-ChocoBotPackage {
     .EXAMPLE
     Install-ChocoBotPackage -Package vlc,googlechrome,vscode -Computername ((Get-ADComputer -SearchBase "OU=Finance,OU=Chicago","DC=fabrikam",DC=com".Name)
     #>
-    #[PoshBot.BotCommand(CommandName = 'install')]
-    [CmdletBinding(HelpUri="https://github.com/steviecoaster/ChocoBot/blob/main/Help/Install-ChocoBotPackage.md")]
+    [PoshBot.BotCommand(CommandName = 'install')]
+    [CmdletBinding(HelpUri = "https://github.com/steviecoaster/ChocoBot/blob/main/Help/Install-ChocoBotPackage.md")]
     Param(
         [Parameter(Mandatory)]
         [String[]]
@@ -61,21 +61,18 @@ function Install-ChocoBotPackage {
 
         Invoke-ChocoProcess -ChocoArgs $chocoArgs
 
-        if($LASTEXITCODE -eq 0){
-            [pscustomObject]@{
-                Result = "Success"
+        $cardParams = @{
+            Title = "Package Installation Complete"
+            Text  = [pscustomobject]@{
                 Package = $Package
                 Targets = $Computername
-            }
+
+            } | Format-List -Property * | Out-String
+            Type  = 'Normal'
         }
 
-        else {
-            [pscustomobject]@{
-                Result = "Failed"
-                Package = $Package
-                Targets = $Computername
-            }
-        }
+        New-PoshbotCardResponse @cardParams
         
     }
+    
 }

@@ -1,4 +1,6 @@
 function Add-ChocoBotSource {
+
+    [PoshBot.BotCommand(CommandName = 'addsource')]
     [cmdletBinding()]
     param(
         [Parameter(Mandatory)]
@@ -108,6 +110,20 @@ function Add-ChocoBotSource {
         }
         
         Invoke-ChocoProcess -ChocoArgs $chocoArgs
+
+        $cardParams = @{
+            Title = "Chocolatey Source Added"
+            Text  = [pscustomobject]@{
+                Name = $FriendlyName
+                Source = $Source
+                SelfService = $AllowSelfService
+                AdminOnly = $AdminOnly
+                BypassProxy = $BypassProxy
+            } | Format-List -Property * | Out-String
+            Type  = 'Normal'
+        }
+
+        New-PoshbotCardResponse @cardParams
 
     }
 }
