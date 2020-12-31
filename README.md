@@ -1,6 +1,6 @@
 # ChocoBot - The PoshBot Chocolatey Plugin
 
-## :construction: THIS PROJECT IS IN DEVELOPMENT. It is functionally useless at the minute. This README will be updated once something useful is available.
+## :construction: THIS PROJECT IS IN DEVELOPMENT. While this is minimally functional, expect changes to occur rapidly.
 
 Do you use Slack? Teams? Discord? Do you partake in [ChatOps](https://www.pagerduty.com/blog/what-is-chatops/)? If you've answered yes, or you'd _like_ to do those things, this is another tool in your toolbelt!
 
