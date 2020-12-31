@@ -14,7 +14,8 @@ Retrieves packages available on a source per Computername
 ## SYNTAX
 
 ```powershell
-Get-ChocoBotPackage [-Source] <String> [-Computername] <String[]> [[-Package] <String>] [<CommonParameters>]
+Get-ChocoBotPackage [[-Source] <String>] [-LocalOnly] [-Computername] <String[]> [[-Package] <String>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -52,9 +53,25 @@ Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: 1
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LocalOnly
+
+Return installed Chocolatey Package information
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: Installed
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

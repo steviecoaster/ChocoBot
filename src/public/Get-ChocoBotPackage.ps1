@@ -9,6 +9,9 @@ Retrieves packages available on a source per Computername
 .PARAMETER Source
 The source to query
 
+.PARAMETER LocalOnly
+Return installed Chocolatey Package information
+
 .PARAMETER Computername
 The computer name(s) to run against
 
@@ -16,6 +19,13 @@ The computer name(s) to run against
 Optionally the specific package to query
 
 .EXAMPLE
+Returns all installed Chocolatey packages on Finance01
+
+Get-ChocoBotPackage -LocalOnly -Computername Finance01
+
+.EXAMPLE
+Returns all packages available on the MyRepo source for Finance01
+
 Get-ChocoBotPackage -Source MyRepo -Computername Finance01
 
 .EXAMPLE
@@ -129,5 +139,5 @@ Get-ChocoBotPackage -Source MyRepo -Computername Finance01 -Package lob-app
         }
 
     }
-    
+
 }
