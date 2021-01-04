@@ -16,6 +16,8 @@ This plug-in allows you to execute choco commands on target systems directly fro
 
 ## Installation
 
+#### Manual
+
 Steps: 
 
 1. Clone this repository
@@ -23,6 +25,12 @@ Steps:
 3. Run ./build.ps1 -Build
 4. Run ./build.ps1 -Deploy
 5. Copy ChocoBot folder to $PSModulePath
+
+
+#### Gallery
+
+1. `Install-Module PoshBot`
+2. `Install-Module ChocoBot`
 
 ## Hooking up PoshBot
 
